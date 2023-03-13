@@ -202,17 +202,16 @@ const getProducts = async function () {
         category.textContent = `  ${product.category}`;
         card.appendChild(category);
         const description = document.createElement("p");
+        description.classList.add("card_Text");
         description.textContent = ` 📓: ${product.description}`;
         card.appendChild(description);
 
         //Price
-        const priceSpan = document.createElement("span");
-        priceSpan.classList.add("highlited_span");
-        priceSpan.textContent = `${product.price} $`;
+
         const price = document.createElement("span");
-        price.textContent = `💲price: `;
+        price.classList.add("highlited_span");
+        price.textContent = `💲price: ${product.price} $ `;
         card.appendChild(price);
-        price.appendChild(priceSpan);
 
         // const detailBtnContainer = document.createElement("div");
 
