@@ -66,7 +66,7 @@ nav.addEventListener("mouseover", handleHover.bind(0.5));
 
 nav.addEventListener("mouseout", handleHover.bind(1));
 
-////////////////Header ////////////////////
+////////////////footer social icons ////////////////////
 const socIcons = document.querySelector(".socIcons");
 const icons = document.querySelectorAll(".icons");
 const fa_brands = document.querySelectorAll("fa_brands");
@@ -279,6 +279,13 @@ async function fetchDetail(detailEndpoint) {
     detailCard.appendChild(returnBtn);
     returnBtn.addEventListener("click", function (e) {
       cards.style.display = "flex";
+      const s1coords = header.getBoundingClientRect();
+      window.scrollTo({
+        left: s1coords.left + window.pageXOffset,
+        top: s1coords.top + window.pageYOffset,
+        behavior: "smooth",
+      });
+
       detailCard.classList.add("hidden");
     });
 
@@ -372,4 +379,13 @@ inputBtn.addEventListener("click", function (e) {
   } else {
     alert("Please enter a valid email adress");
   }
+});
+
+// nav Bar
+
+const hamburger = document.querySelector(".hamburger");
+hamburger.addEventListener("click", function () {
+  // hamburger.textContent = "X";
+  const nav = document.querySelector(".nav");
+  nav.classList.toggle("active");
 });
