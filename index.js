@@ -247,6 +247,7 @@ async function fetchDetail(detailEndpoint) {
       top: s1coords.top + window.pageYOffset,
       behavior: "smooth",
     });
+    pagination.classList.add("hidden");
 
     cards.style.display = "none";
     detailCard.classList.remove("hidden");
@@ -287,6 +288,7 @@ async function fetchDetail(detailEndpoint) {
       });
 
       detailCard.classList.add("hidden");
+      pagination.classList.remove("hidden");
     });
 
     //create a new page to display detailed informationhn
