@@ -46,7 +46,7 @@ document.addEventListener("keydown", function (e) {
 });
 
 ////////////////Menu fade animation////////////////////
-const handleHover = function (e, opacity) {
+const handleHover = function (e) {
   if (e.target.classList.contains("nav_item")) {
     const hoverd = e.target;
     const siblings = hoverd.closest(".header").querySelectorAll(".nav_item");
@@ -57,7 +57,7 @@ const handleHover = function (e, opacity) {
       if (el !== hoverd) el.style.opacity = this;
     });
     logo.style.opacity = this;
-    logo.style.transition = "0.4s easy in";
+
     logIn.style.opacity = this;
   }
 };
@@ -78,43 +78,37 @@ const twitter = document.querySelector(".twitter");
 const fa_twitter = document.querySelector(".fa-twitter");
 console.log(icons);
 
+const socIconsFunc = (smallName, bigName, scale, color) => {
+  smallName.style.transform = scale;
+  bigName.style.color = color;
+  bigName.style.transform = scale;
+};
+
 icons.forEach((el) => {
   el.addEventListener("mouseover", function (e) {
     const hoverTarget = e.target.closest(".icons");
 
     if (hoverTarget.classList.contains("facebook")) {
-      facebook.style.transform = "scale(1.1)";
-      fa_facebook.style.color = "#4F46E5";
-      fa_facebook.style.transform = "scale(1.1)";
+      socIconsFunc(facebook, fa_facebook, "scale(1.1", "#4F46E5");
     }
     if (hoverTarget.classList.contains("instagram")) {
-      instagram.style.transform = "scale(1.1)";
-      fa_instagram.style.color = "red";
-      fa_instagram.style.transform = "scale(1.1)";
+      socIconsFunc(instagram, fa_instagram, "scale(1.1)", "red");
     }
     if (hoverTarget.classList.contains("twitter")) {
-      twitter.style.transform = "scale(1.1)";
-      fa_twitter.style.color = "#4F46E5";
-      fa_twitter.style.transform = "scale(1.1)";
+      socIconsFunc(twitter, fa_twitter, "scale(1.1)", "#4F46E5");
     }
   });
   el.addEventListener("mouseout", function (e) {
     const hoverTarget = e.target.closest(".icons");
 
     if (hoverTarget.classList.contains("facebook")) {
-      facebook.style.transform = "scale(1)";
-      fa_facebook.style.color = "black";
-      fa_facebook.style.transform = "scale(1)";
+      socIconsFunc(facebook, fa_facebook, "scale(1)", "black");
     }
     if (hoverTarget.classList.contains("instagram")) {
-      instagram.style.transform = "scale(1)";
-      fa_instagram.style.color = "black";
-      fa_instagram.style.transform = "scale(1)";
+      socIconsFunc(instagram, fa_instagram, "scale(1)", "black");
     }
     if (hoverTarget.classList.contains("twitter")) {
-      twitter.style.transform = "scale(1)";
-      fa_twitter.style.color = "black";
-      fa_twitter.style.transform = "scale(1)";
+      socIconsFunc(twitter, fa_twitter, "scale(1)", "black");
     }
   });
 });
